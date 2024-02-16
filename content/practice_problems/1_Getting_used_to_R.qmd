@@ -217,7 +217,29 @@ Info on the dataset is viewable \@
 How many rows does the **sleep** data set have (hint: `?dim`)? What kind
 of data is stored in each variable?
 
-ENTER ANSWERS HERE. ADD ANY R CHUNKS YOU USED TO FIND THE ANSWER.
+```{r}
+?dim
+```
+
+```{r}
+dim(sleep
+```
+
+```{r}
+dim(sleep)[1]
+```
+
+```{)}
+```
+
+The sleep data set has 62 rows.
+
+```{r}
+str(sleep)
+```
+
+The str function returns the size of the dataset and the class of each
+column.
 
 #### 5
 

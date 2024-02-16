@@ -304,6 +304,27 @@ this imply?
 
 ENTER ANSWERS HERE. ADD ANY R CHUNKS YOU USED TO FIND THE ANSWER.
 
+```{r}
+plot(TotalSleep ~ BrainWt, sleep)
+```
+
+The issue in this data set is that there is a number of outliers, where
+BrainWt\>1000.
+
+```{r}
+sleep_fit <- lm(TotalSleep ~ BrainWt, sleep[sleep$BrainWt<1000,])
+summary(sleep_fit)
+```
+
+TotalSleep decreases as BrainWt increases because there is a negative
+estimate, the slope is negative. There is a significant p value greater
+than .05.
+
+```{r}
+plot(TotalSleep ~ BrainWt, data = sleep[sleep$BrainWt <  1000, ])
+abline(sleep_fit)
+```
+
 ### EXTRA QUESTIONS
 
 *not required*

@@ -139,6 +139,38 @@ INSERT AN R CHUNK HERE AND RUN EACH OF THESE COMMANDS. Add a new chunk
 by clicking the *Insert Chunk* button on the toolbar or by pressing
 *Ctrl+Alt+I*. Then state what each of these does.
 
+```{r}
+length(x)
+```
+
+Length of x returns the number of elements in a vector.
+
+```{r}
+max(x)
+```
+
+Max returns the highest number.
+
+```{r}
+x[x < 10]
+
+```
+
+The square brackets allow you to work with a certain set of values from
+the vector.
+
+```{r}
+x^2
+```
+
+\^2 squares the values.
+
+```{r}
+x[ x < 12 & x > 7]
+```
+
+The brackets select a certain group of numbers from the vector.
+
 #### 3
 
 Is `-1:2` the same as `(-1):2` or `-(1:2)`? INSERT AN R CHUNK HERE AND

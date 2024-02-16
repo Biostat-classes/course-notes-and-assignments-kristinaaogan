@@ -229,8 +229,7 @@ dim(sleep
 dim(sleep)[1]
 ```
 
-```{)}
-```
+`{)}`
 
 The sleep data set has 62 rows.
 
@@ -247,6 +246,10 @@ Change the column named *BodyWt* to *Body_weight*"\* in the sleep
 dataset.
 
 ADD ANY R CHUNKS YOU USED TO COMPLETE THE TASK.
+
+```{r}
+names(sleep)[names(sleep) %in% "BodyWt"] <- "Body_weight"
+```
 
 #### 6
 

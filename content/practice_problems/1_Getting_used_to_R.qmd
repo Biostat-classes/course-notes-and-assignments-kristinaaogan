@@ -173,8 +173,30 @@ The brackets select a certain group of numbers from the vector.
 
 #### 3
 
-Is `-1:2` the same as `(-1):2` or `-(1:2)`? INSERT AN R CHUNK HERE AND
-RUN EACH OF THESE COMMANDS. Then state what each of these does.
+Is `-1:2` the same as `(-1):2` or
+
+```{r}
+
+```
+
+? INSERT AN R CHUNK HERE AND RUN EACH OF THESE COMMANDS. Then state what
+each of these does.
+
+```{r}
+-1:2
+```
+
+```{r}
+(-1):2
+```
+
+```{r}
+-(1:2)
+```
+
+The first command gives us a sequence of numbers from -1 to 2. The
+second command does the same thing. However, the last command gives us a
+sequence from 1 to 2, but adds a negative sign in front of it.
 
 ### Data input, plotting, and tests
 

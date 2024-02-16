@@ -287,6 +287,13 @@ NOTE YOU CAN ADD A PLOT TO THE DOCUMENT TOO! AMEND THE BELOW AS NEEDED.
 plot(cars)
 ```
 
+```{r}
+plot(TotalSleep ~ Primate, sleep)
+```
+
+The plot is comparing the total sleep of primates in comparison to other
+species.
+
 #### 7
 
 The **sleep** dataset begs to have a linear model fit for it. Let's

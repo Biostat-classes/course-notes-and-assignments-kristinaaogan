@@ -539,6 +539,35 @@ order to do this you can use the Primate column or (following class
 code) make a new column called Taxa to represent the information
 (hint:search for “ revalue”). Make sure axes are well-labeled.
 
+```{r}
+library(plyr)
+sleep$Taxa <- revalue(sleep$Primate, c(Y = "Primate", N = "Non-primate"))
+sleep$Taxa <- relevel(sleep$Taxa, "Primate")
+
+ggplot(sleep[sleep$BrainWt <1000, ], aes(x=BrainWt, y = TotalSleep)) +
+  geom_point(aes(colour=Taxa), size = 4) +
+  #below here is ylabel, xlabel, and main title
+  ylab("Average hours spent \n sleeping daily") +
+  xlab("Brain weight (g)") +
+  ggtitle("Time spent sleeping \n decreases with brain \n weight") +
+  #scale commands help with legends
+  scale_colour_manual(name="Type of mammal",values = c("#FFA373","#50486D")) +
+  #theme sets sizes, text, etc
+  theme(axis.title.x = element_text(face="bold", size=28), 
+        axis.title.y = element_text(face="bold", size=28), 
+        axis.text.y  = element_text(size=20),
+        axis.text.x  = element_text(size=20), 
+        legend.text =element_text(size=20),
+        legend.title = element_text(size=20, face="bold"),
+        plot.title = element_text(hjust = 0.5, face="bold", size=32),
+        # change plot background, grid lines, etc (just examples so you can see)
+        panel.background = element_rect(fill="white"),
+        panel.grid.minor.y = element_line(size=3),
+        panel.grid.major = element_line(colour = "black"),
+        plot.background = element_rect(fill="gray"),
+        legend.background = element_rect(fill="gray"))
+```
+
 ### 3
 
 Let’s work with histograms. \* What type of variation do we see in total

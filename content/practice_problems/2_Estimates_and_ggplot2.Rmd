@@ -686,6 +686,9 @@ ggplot(sleep_by_predation
 
 What does a 95% confidence interval mean?
 
+A 95% confidence interval means that the true population parameter will
+be in the interval we created 95% of the time we create it.
+
 ### 6
 
 To make sure you understand the ideas of sampling, confidence intervals,

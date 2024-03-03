@@ -626,10 +626,57 @@ ggplot(sleep[sleep$Taxa == "Primate",]
 Develop a properly-labeled bar graph with error bars to explore how
 total sleep changes with \* Primate (relabeled as yes/no as
 Primate/Non-Primate; note there are multiple ways to do this!) – use a
-95% confidence interval for the bar \* Predation risk (as a factor!) –
-use 1 standard error for the bar. Note the difference!
+95% confidence interval for the bar \*
 
 ```{r}
+#use summarySE function from Rmisc package
+sleep$Primate <- revalue(sleep$Primate, c(Y = "Yes", N = "No"))
+sleep$Primate <- relevel(sleep$Primate, "No")
+library(Rmisc)
+sleep_by_primate <- summarySE(sleep, measurevar = "TotalSleep", groupvars = "Primate", na.rm = T)
+#look at it
+sleep_by_primate
+library(ggplot2)
+ggplot(sleep_by_primate
+       , aes(x=Primate, y=TotalSleep)) +
+  geom_col(size = 3) +
+  geom_errorbar(aes(ymin=TotalSleep-ci, ymax=TotalSleep+ci), size=1.5) +
+  ylab("Total sleep \n (hours per day")+ 
+  xlab("Primate?")+ 
+  ggtitle("Sleep across different taxa")+
+  theme(axis.title.x = element_text(face="bold", size=28), 
+        axis.title.y = element_text(face="bold", size=28), 
+        axis.text.y  = element_text(size=20),
+        axis.text.x  = element_text(size=20), 
+        legend.text =element_text(size=20),
+        legend.title = element_text(size=20, face="bold"),
+        plot.title = element_text(hjust = 0.5, face="bold", size=32)) 
+
+```
+
+Predation risk (as a factor!) – use 1 standard error for the bar. Note
+the difference!
+
+```{r}
+sleep$Predation <- as.factor(sleep$Predation)
+sleep_by_predation <- summarySE(sleep, measurevar = "TotalSleep", 
+                                groupvars = "Predation", na.rm = T)
+#look at it
+sleep_by_predation
+require(ggplot2)
+ggplot(sleep_by_predation
+       , aes(x=Predation, y=TotalSleep)) +
+  geom_col(size = 3) +
+  geom_errorbar(aes(ymin=TotalSleep-se, ymax=TotalSleep+se), size=1.5) +
+  ylab("Total sleep \n (hours per day)") + 
+  ggtitle("Sleep across different \n predation levels")+
+  theme(axis.title.x = element_text(face="bold", size=28), 
+        axis.title.y = element_text(face="bold", size=28), 
+        axis.text.y  = element_text(size=20),
+        axis.text.x  = element_text(size=20), 
+        legend.text =element_text(size=20),
+        legend.title = element_text(size=20, face="bold"),
+        plot.title = element_text(hjust = 0.5, face="bold", size=32))
 
 ```
 

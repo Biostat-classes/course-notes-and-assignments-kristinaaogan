@@ -696,8 +696,14 @@ and the central limit theorem, review the visualizations produced by
 UBC:
 
 -   https://www.zoology.ubc.ca/\~whitlock/Kingfisher/SamplingNormal.htm
+
 -   https://www.zoology.ubc.ca/\~whitlock/Kingfisher/CIMean.htm
+
 -   https://www.zoology.ubc.ca/\~whitlock/Kingfisher/CLT.htm
+
+    If the sample size is large enough, the distribution of the means of
+    a data set will have a normal distribution, no matter the
+    distribution of the data.
 
 ### 7
 
